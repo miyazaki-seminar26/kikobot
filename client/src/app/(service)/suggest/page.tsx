@@ -69,7 +69,7 @@ const Page = () => {
       ) : (
         <>
           <div className="border-dotted border-2 p-3 mx-3">{kiko}</div>
-          <Image src="/kiko2.svg" alt="kiiko" width={200} height={200} />
+          <Image src="/kiko2.svg" alt="kiiko" width={300} height={200} />
         </>
       )}
       <Link href="/" className="border-4 bg-indigo-600 p-3">
