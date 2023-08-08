@@ -64,7 +64,7 @@ const Page = () => {
       {randomNumber === 1 && kiko !== "" ? (
         <>
           <div className="border-dotted border-2 p-3 mx-3">{kiko}</div>
-          <Image src="/matubara.svg" alt="kiiko" width={150} height={200} />
+          <Image src="/matubara.svg" alt="kiiko" width={300} height={200} />
         </>
       ) : (
         <>
