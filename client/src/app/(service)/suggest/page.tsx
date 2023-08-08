@@ -4,10 +4,15 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 
+function getRandomNumber(): number {
+  return Math.floor(Math.random() * 10) + 1;
+}
+
 const Page = () => {
   const [kiko, setKiko] = useState("");
   const [text, setText] = useState<string>("");
   const [isLoading, setIsLoading] = useState(false);
+  const [randomNumber, setRandomNumber] = useState(getRandomNumber());
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
@@ -35,10 +40,10 @@ const Page = () => {
     const json = await res.json();
 
     const answer = json.choices[0].text;
-    console.log("a", answer);
 
     setKiko(answer);
     setIsLoading(false);
+    setRandomNumber(getRandomNumber());
   };
 
   return (
@@ -56,14 +61,15 @@ const Page = () => {
         </button>
       </form>
       <p>{isLoading ? "ローディング中" : null}</p>
-      {kiko === "" ? (
+      {randomNumber === 1 && kiko !== "" ? (
         <>
-          <Image src="/kiko2.svg" alt="kiiko" width={300} height={300} />
+          <div className="border-dotted border-2 p-3 mx-3">{kiko}</div>
+          <Image src="/matubara.svg" alt="kiiko" width={150} height={200} />
         </>
       ) : (
         <>
           <div className="border-dotted border-2 p-3 mx-3">{kiko}</div>
-          <Image src="/kiko1.svg" alt="kiiko" width={150} height={200} />
+          <Image src="/kiko2.svg" alt="kiiko" width={200} height={200} />
         </>
       )}
       <Link href="/" className="border-4 bg-indigo-600 p-3">
