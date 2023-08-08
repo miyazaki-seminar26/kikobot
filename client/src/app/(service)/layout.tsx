@@ -7,7 +7,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <Logo />
       </div>
       <main>
-        <div className="items-center  bg-zinc-900">{children}</div>
+        <div className="items-center  bg-zinc-900 text-white">{children}</div>
       </main>
     </div>
   );
